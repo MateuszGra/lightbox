@@ -26,6 +26,7 @@
     &--image {
       max-width: 95vw;
       max-height: 90vh;
+      line-height: 0;
     }
   }
 
@@ -41,6 +42,25 @@
     border-radius: 50%;
     z-index: 10002;
     cursor: pointer;
+
+    @mixin bar($deg) {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 2px;
+      height: 25px;
+      background: #ffffff;
+      transform: translate(-50%, -50%) rotate($deg);
+    }
+
+    &::after {
+      @include bar(45deg)
+    }
+
+    &::before {
+      @include bar(-45deg)
+    }
   }
 
   &__iframe {

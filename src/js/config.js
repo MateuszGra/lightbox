@@ -3,7 +3,7 @@ const lightboxOne = new Lightbox({
     type: 'iframe',
 });
 
-const lightboxThree = new Lightbox({
+const lightboxTwo = new Lightbox({
   selector: '.image',
   type: 'image',
 });
