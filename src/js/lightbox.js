@@ -1,20 +1,21 @@
 class Lightbox {
   constructor(object) {
     this.selector = object.selector;
-    this.triger = document.querySelector(object.selector);
+    this.trigers = document.querySelectorAll(object.selector);
     this.type = object.type;
     this.id = Date.now() + Math.floor(Math.random() * 100);
     this.eventListener();
   }
 
   eventListener() {
-    document.addEventListener('click', (e) => {
-
-      if (e.target.closest(this.selector)) {
+    this.trigers.forEach(triger =>  {
+      triger.addEventListener('click', (e) => {
         e.preventDefault();
-        this.crateLightbox();
-      }
+        this.crateLightbox(triger);
+      });
+    });
 
+    document.addEventListener('click', (e) => {
       if (e.target.matches('.lightbox') || e.target.matches('.lightbox__close-btn')) {
         this.removeLightbox();
       }
@@ -28,16 +29,16 @@ class Lightbox {
 
   }
 
-  crateLightbox() {
+  crateLightbox(target) {
     const box = document.createElement('div');
     box.classList.add('lightbox');
     box.dataset.id = this.id;
     let content;
 
     if (this.type === 'iframe') {
-      content =  `<iframe class="lightbox__iframe" src="${this.triger.href}"><iframe>`
+      content =  `<iframe class="lightbox__iframe" src="${target.href}"><iframe>`
     } else if (this.type === 'image') {
-      content= `<img class="lightbox__img" src="${this.triger.href}">`
+      content = `<img class="lightbox__img" src="${target.href}">`
     }
 
     box.innerHTML = `
