@@ -4,6 +4,6 @@ const lightboxOne = new Lightbox({
 });
 
 const lightboxTwo = new Lightbox({
-  selector: '.image',
-  type: 'image',
+    selector: '.image',
+    type: 'image',
 });
