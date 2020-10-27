@@ -26,8 +26,11 @@
     &--iframe {
       width: 70%;
       height: 80%;
-      max-width: 70%;
-      max-height: 80%;
+    }
+
+    &--youtube {
+      width: 70%;
+      padding-top: 39.375%;
     }
 
     &--image {
@@ -76,6 +79,16 @@
     margin: 0;
     padding: 0;
     border: none;
+  }
+
+  &__youtube {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
   }
 
   &__img {

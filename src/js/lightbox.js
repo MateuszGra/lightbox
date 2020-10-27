@@ -3,6 +3,7 @@ class Lightbox {
         this.selector = object.selector;
         this.trigers = document.querySelectorAll(object.selector);
         this.type = object.type;
+        this.video = object.video;
         this.eventListener();
     }
 
@@ -15,15 +16,11 @@ class Lightbox {
         });
 
         document.addEventListener('click', (e) => {
-            if (e.target.matches('.lightbox') || e.target.matches('.lightbox__close-btn')) {
-                this.removeLightbox();
-            }
+            if (e.target.matches('.lightbox') || e.target.matches('.lightbox__close-btn')) this.removeLightbox();
         });
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                this.removeLightbox();
-            }
+            if (e.key === 'Escape') this.removeLightbox();
         });
     }
 
@@ -37,6 +34,16 @@ class Lightbox {
             content = `<iframe class="lightbox__iframe lightbox__loaded" src="${target.href}"><iframe>`;
         } else if (this.type === 'image') {
             content = `<img class="lightbox__img lightbox__loaded" src="${target.href}">`;
+        } else if (this.type === 'youtube') {
+            let url = (new URL(target.href)).searchParams;
+            const video = url.get('v');
+            let src = `https://www.youtube.com/embed/${video}`;
+            const attributes = 'frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen';
+            if (this.video) {
+                if (this.video.privacyEnhanced == true) src = `https://www.youtube-nocookie.com/embed/${video}`;
+                if (this.video.controls == false) src += '?controls=0';
+            }
+            content = `<iframe class="lightbox__youtube lightbox__loaded" ${attributes} src="${src}"><iframe>`;
         }
 
         box.innerHTML = `
@@ -65,6 +72,4 @@ class Lightbox {
         const lightbox = document.querySelector(`.lightbox`);
         if (lightbox) lightbox.remove();
     }
-
-
 }
