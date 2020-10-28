@@ -34,7 +34,13 @@ class Lightbox {
         if (this.type === 'iframe') {
             content = `<iframe class="lightbox__iframe lightbox__loaded" src="${target.href}"></iframe>`;
         } else if (this.type === 'image') {
-            content = `<img class="lightbox__img lightbox__loaded" src="${target.href}">`;
+            function addAlt() {
+                const targetImage = target.querySelector('img');
+                return targetImage.alt ? `alt="${targetImage.alt}"` : 'alt';
+            }
+
+            content = `<img class="lightbox__img lightbox__loaded" ${addAlt()} src="${target.href}">`;
+
         } else if (this.type === 'youtube') {
             let url = (new URL(target.href)).searchParams;
             const video = url.get('v');
