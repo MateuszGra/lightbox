@@ -1,7 +1,7 @@
 class Lightbox {
     constructor(object) {
         this.selector = object.selector;
-        this.trigers = document.querySelectorAll(object.selector);
+        this.triggers = document.querySelectorAll(object.selector);
         this.type = object.type;
         this.title = object.title;
         this.video = object.video;
@@ -9,10 +9,10 @@ class Lightbox {
     }
 
     eventListener() {
-        this.trigers.forEach(triger => {
-            triger.addEventListener('click', (e) => {
+        this.triggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
                 e.preventDefault();
-                this.crateLightbox(triger);
+                this.crateLightbox(trigger);
             });
         });
 
@@ -50,7 +50,6 @@ class Lightbox {
         if (this.title == true) {
             const addTitle = () => target.dataset.title ? target.dataset.title : target.href;
             content += `<div class="lightbox__details"><p class="lightbox__title">${addTitle()}</p></div>`
-            console.log(content);
         }
 
         box.innerHTML = `
@@ -68,8 +67,8 @@ class Lightbox {
     loading() {
         const loaded = document.querySelector('.lightbox__loaded');
         loaded.addEventListener('load', () => {
-            const conetntDOM = document.querySelector('.lightbox__content');
-            conetntDOM.classList.add('active');
+            const contentDOM = document.querySelector('.lightbox__content');
+            contentDOM.classList.add('active');
             const loaderDOM = document.querySelector('.lightbox__loader');
             loaderDOM.classList.remove('active');
         })
