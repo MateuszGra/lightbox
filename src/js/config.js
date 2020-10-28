@@ -8,6 +8,12 @@ const image = new Lightbox({
     type: 'image',
 });
 
+const imageSettings = new Lightbox({
+    selector: '.image-settings',
+    type: 'image',
+    title: true,
+});
+
 const videoControls = new Lightbox({
     selector: '.youtube',
     type: 'youtube',
@@ -16,6 +22,7 @@ const videoControls = new Lightbox({
 const videoSettings = new Lightbox({
     selector: '.youtube-settings',
     type: 'youtube',
+    title: true,
     video: {
         controls: false,
         privacyEnhanced: true,

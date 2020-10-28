@@ -97,6 +97,20 @@
     object-fit: cover;
   }
 
+  &__details {
+    position: absolute;
+    bottom: 0;
+    background: transparent;
+    color: white;
+    transform: translateY(100%);
+  }
+
+  &__title {
+    bottom: 0;
+    margin: 15px 5px;
+    font-size: 13px;
+  }
+
   &__loader {
     position: absolute;
     top: 50%;

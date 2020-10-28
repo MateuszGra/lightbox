@@ -3,6 +3,7 @@ class Lightbox {
         this.selector = object.selector;
         this.trigers = document.querySelectorAll(object.selector);
         this.type = object.type;
+        this.title = object.title;
         this.video = object.video;
         this.eventListener();
     }
@@ -31,7 +32,7 @@ class Lightbox {
         let content;
 
         if (this.type === 'iframe') {
-            content = `<iframe class="lightbox__iframe lightbox__loaded" src="${target.href}"><iframe>`;
+            content = `<iframe class="lightbox__iframe lightbox__loaded" src="${target.href}"></iframe>`;
         } else if (this.type === 'image') {
             content = `<img class="lightbox__img lightbox__loaded" src="${target.href}">`;
         } else if (this.type === 'youtube') {
@@ -43,7 +44,13 @@ class Lightbox {
                 if (this.video.privacyEnhanced == true) src = `https://www.youtube-nocookie.com/embed/${video}`;
                 if (this.video.controls == false) src += '?controls=0';
             }
-            content = `<iframe class="lightbox__youtube lightbox__loaded" ${attributes} src="${src}"><iframe>`;
+            content = `<iframe class="lightbox__youtube lightbox__loaded" ${attributes} src="${src}"></iframe>`;
+        }
+
+        if (this.title == true) {
+            const addTitle = () => target.dataset.title ? target.dataset.title : target.href;
+            content += `<div class="lightbox__details"><p class="lightbox__title">${addTitle()}</p></div>`
+            console.log(content);
         }
 
         box.innerHTML = `
