@@ -2,7 +2,7 @@
 Lightbox is small javascript library used to overlay images/films/websites on top of the current page.
 
 ### See how it works
-[Example](https://lightbox.mgrabowski.eu/)
+[Example](https://lightbox.mgrabowski.eu/){:target="_blank"}
 
 ## How to start
 Download `lightbox.css` `lightbox.js` files and use in your project.
@@ -20,9 +20,9 @@ Download `lightbox.css` `lightbox.js` files and use in your project.
 
 ### Initialize Lightbox
 ```javascript
- import Lightbox from '/src/js/lightbox.js'
+import Lightbox from '/src/js/lightbox.js'
  
- const link = new Lightbox({
+const link = new Lightbox({
  	selector: '.iframe',
  	type: 'iframe',
 });
