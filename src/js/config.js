@@ -1,3 +1,5 @@
+import Lightbox from '/src/js/lightbox.js';
+
 const link = new Lightbox({
     selector: '.iframe',
     type: 'iframe',

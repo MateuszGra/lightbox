@@ -5,7 +5,7 @@ Lightbox is small javascript library used to overlay images/films/websites on to
 [Example](https://www.google.com)
 
 ## How to start
-Download files from "build" folder and use in your project.
+Download `lightbox.css` `lightbox.js` files and use in your project.
 
 ### CSS Styles
 ```html
@@ -20,7 +20,7 @@ Download files from "build" folder and use in your project.
 
 ### Initialize Lightbox
 ```javascript
- import Lightbox from 'src/js/lightbox.js'
+ import Lightbox from '/src/js/lightbox.js'
  
  const link = new Lightbox({
  	selector: '.iframe',

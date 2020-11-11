@@ -1,4 +1,4 @@
-class Lightbox {
+export default class Lightbox {
     constructor(object) {
         this.selector = object.selector;
         this.triggers = document.querySelectorAll(object.selector);
