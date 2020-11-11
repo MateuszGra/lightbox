@@ -2,7 +2,7 @@
 Lightbox is small javascript library used to overlay images/films/websites on top of the current page.
 
 ### See how it works
-[Example](https://mateuszgra.github.io/lightbox/.)
+[Example](https://lightbox.mgrabowski.eu/)
 
 ## How to start
 Download `lightbox.css` `lightbox.js` files and use in your project.
