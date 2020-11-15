@@ -39,6 +39,7 @@ const link = new Lightbox({
 | parameter        | Type           | Default  | Description |
 | :---------------: |:-------------:| :--------:|:-------------|
 | title | boolean | false | Add a title under the lightbox. Default value is the file url, can be changed to data-title tag attribute |
+| scrollLock | boolean | true | Block page scrolling when lightbox is active |
 ```html
 <a  data-title="This is your new title."></a>
 ```

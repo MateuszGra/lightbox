@@ -14,6 +14,7 @@ const imageSettings = new Lightbox({
     selector: '.image-settings',
     type: 'image',
     title: true,
+    scrollLock: false,
 });
 
 const videoControls = new Lightbox({
