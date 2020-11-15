@@ -75,6 +75,9 @@ export default class Lightbox {
             contentDOM.classList.add('active');
             const loaderDOM = document.querySelector('.lightbox__loader');
             loaderDOM.classList.remove('active');
+            loaderDOM.addEventListener('transitionend', () => {
+                loaderDOM.remove();
+            });
         })
     }
 
